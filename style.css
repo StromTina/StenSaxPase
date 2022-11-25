@@ -1,0 +1,417 @@
+body {
+    background-color: rgb(0, 0, 0);
+        display: grid;
+
+    grid-template-areas:
+        'header header header'
+        'nav nav nav'
+        'aside div right'
+        'footer footer footer';
+
+    gap: 10px;
+
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 2fr 1fr auto 1fr;
+}
+
+
+header {
+    grid-area: header;
+    display: flex;
+    background-size: 20%;
+    background-repeat: repeat-x;
+    position: relative;
+    border-top: 3px solid #caaf81;
+    border-bottom: 2px solid #AA8B56;
+    background-color: rgb(7, 47, 59);
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+header::before {
+    content: "";
+    background-image: url("./images/childhands.jpg");
+    background-size: 50%;
+    background-repeat: repeat-x;
+    background-position: 10vh;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.1;
+}
+
+h1 {
+    position: relative;
+    color: #caaf81;
+    text-shadow: 3px 3px #000000;
+    text-align: center;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+}
+
+nav {
+    display: flex;
+    grid-area: nav;
+    background-color: #AA8B56;
+    min-height: 30px;
+    max-height: 33px;
+    border-bottom: 5px solid #f0ebce;
+    border-bottom-right-radius: 25%;
+    border-bottom-left-radius: 25%;
+    padding-top: 1vh;
+    text-align: center;
+    justify-content: space-around;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+}
+
+.smallNav {
+    display: none;
+    justify-content: space-around;
+}
+
+.navSymbols:hover {
+    text-decoration: none;
+    font-size: larger;
+}
+
+.navItems {
+    color: black;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: 400;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+a:hover {
+    color: rgb(134, 49, 49);
+    text-shadow: 0 0 1em #f3e0bf;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 1px solid #AA8B56;
+    border-bottom: 2px solid #caaf81;
+    background-color: rgb(7, 47, 59);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+}
+
+.footerText {
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+    font-weight: 300;
+    color: #caaf81;
+    padding: 1vh; 
+}
+
+#homecontainer {
+    grid-area: div;
+    display: flex;
+    background-color: rgb(81, 18, 18);
+    border: 10px outset #caaf81;
+    padding: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+#newGame {
+    display: flex;
+    background-color: #caaf81;
+    font-size: medium;
+    font-family: Verdana, Tahoma, sans-serif;
+    color: rgb(81, 18, 18);
+    font-weight: bold;
+    border: 1px outset black;
+    border-radius: 12.5%;
+    margin-top: 2vh;
+    padding: 12px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+#newGame:hover {
+    color: #caaf81;
+    background-color: rgb(7, 47, 59);
+    border: 1px outset #caaf81;
+    cursor: pointer;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+}
+
+#handGif {
+    width: 30vh;
+    height: 30vh;
+    border: 4px solid #caaf81;
+    border-radius: 50%;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+
+}
+
+.gamecontainer {
+    grid-area: div;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 3vh;
+    padding: 1vh;
+}
+
+
+#choiceButton {
+    background-color: rgb(81, 18, 18);
+    color: #caaf81;
+    width: 30vh;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border: 5px outset #caaf81;
+    border-radius: 5%;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: large;
+    font-weight: 400;
+
+
+}
+
+#choiceButton:hover {
+    background-color: #1a2b22;
+    cursor: pointer;
+    box-shadow: 0 0 1em #caaf81;
+}
+
+#choiceAside {
+    background-color: rgb(81, 18, 18);
+    color: #AA8B56;
+    border: 3px solid #AA8B56;
+    font-weight: 300;
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+    padding-top: 10%;
+    border-radius: 2%;
+    margin-left: 3vh;
+    margin-bottom: 25vh;
+}
+
+#compChoice {
+    grid-area: right;
+    background-color: rgb(81, 18, 18);
+    color: #AA8B56;
+    border: 3px solid #AA8B56;
+    font-weight: 300;
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+    padding-top: 10%;
+    border-radius: 2%;
+    margin-right: 3vh;
+    margin-bottom: 25vh;
+
+}
+
+.choicePic {
+    width: 15vh;
+    border-radius: 5px;
+    margin: 5vh;
+    border-radius: 50%;
+    border: 3px solid #AA8B56;
+}
+
+#rulescontainer {
+    grid-area: div;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(81, 18, 18);
+    border: 5px outset #AA8B56;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 10vh;
+    padding-right: 10vh;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    margin-left: 35vh;
+    margin-right: -20vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+.rules {
+    text-align: center;
+    color: #caaf81;
+    font-size: medium;
+    font-weight: 300;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+#rulesvideo {
+    grid-area: aside;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vh;
+    border: 5px outset #AA8B56;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    margin-right: -30vh;
+    margin-left: 12vh;
+}
+
+#historyContainer1 {
+    grid-area: div;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#history1{
+    background-color: #395144;
+    color: #caaf81;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 2vh;
+    border: 5px outset #AA8B56;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    padding-top: vh;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+
+#history2 {
+    background-color: rgb(81, 18, 18);
+    color: #caaf81;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 5vh;
+    border: 5px outset #AA8B56;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    padding-top: 3vh;
+    margin-bottom: 10vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+#history3, #history4 {
+    display: none;
+    background-color: rgb(81, 18, 18);
+    color: #caaf81;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 5vh;
+    border: 5px outset #AA8B56;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    padding-top: 3vh;
+    margin-bottom: 10vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+#historyContainer2 {
+    grid-area: aside;
+    text-align: center;
+    background-color: rgb(9, 66, 83);
+    color: #caaf81;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-top: 10vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
+    border: 5px outset #AA8B56;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: medium;
+    font-weight: 400;
+}
+
+
+#historyContainer3 {
+    grid-area: right;
+    text-align: center;
+    background-color: rgb(9, 66, 83);
+    color: #caaf81;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-top: 10vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
+    border: 5px outset #caaf81;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: medium;
+    font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+
+    #rulesvideo {
+        grid-area: div;
+        display: flex;
+        flex-wrap: wrap;
+        width: 40vh;
+        border: 5px outset #AA8B56;
+        box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    }
+
+
+}
+
+@media (max-width: 650px) {
+    .smallNav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .navItems {
+        display: none;
+    }
+
+    header::before {
+        content: "";
+        background-image: url("./images/childhands.jpg");
+        background-size: 100%;
+        background-repeat: repeat-x;
+        background-position: 10vh;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.1;
+    }
+    
+    #historyContainer2 {
+        display: none;
+    }
+    
+    
+    #historyContainer3 {
+        display: none;
+    }
+
+    
+    #history3, #history4 {
+        display: block;
+    }
+}
