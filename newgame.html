@@ -10,17 +10,18 @@
 </head>
 
 <body>
-    <script src="main.js"></script>
     <header>
         <div class="headertitle">
             <h1>STEN SAX PÅSE!</h1>
+
+
         </div>
     </header>
     <nav id="navbar">
         <a href="index.html" class="navItems">🏠 Hem</a>
         <a href="newgame.html" class="navItems">🎮 Nytt spel</a>
         <a href="rules.html" class="navItems">📃 Regler</a>
-        <a href="history.html" class="navItems">🤓 Onödigt vetande</a> 
+        <a href="history.html" class="navItems">🤓 Onödigt vetande</a>
         <a href="statistics.html" class="navItems"> 🥇 Statistik</a>
     </nav>
 
@@ -32,22 +33,84 @@
         <a href="statistics.html" class="navSymbols">🥇</a>
     </nav>
 
-
-    <aside id="choiceAside"><p>Gör ditt val!</p></aside>
-
-    <div class="gamecontainer">
-        <button id="choiceButton" type="button"><img class="choicePic" src="./images/rock.jpg" alt="Hand formad som en sten"><p>Sten</p></button>
-        <button id="choiceButton" type="button"><img class="choicePic" src="./images/scissors.jpg" alt="Hand formad som en sax"><p>Sax</p></button>    
-        <button id="choiceButton" type="button"><img class="choicePic" src="./images/paper.jpg" alt="Hand formad som en påse"><p>Påse</p></button>
+    <div id="playerScoreBoard">
+        <h4 id="playerBox">Dina poäng:</h4>
+        <p id="playerPoints">0</p>
+        <img id="draw" src="./images/handshake.gif" alt="Gif föreställandes två personer som skakar hand">
+        <img id="rockIcon" src="./images/Rock-icon.png" alt="Bild av en hand formad som sten som ökar i storlek">
+        <img id="scissorsIcon" src="./images/Scissors-icon.png" alt="Bild av en hand formad som en sax som ökar i storlek">
+        <img id="paperIcon" src="./images/Paper-icon.png" alt="Bild av en hand formad som en påse som ökar i storlek">
     </div>
 
-    <div id="compChoice"><p>Datorn väljer...</p></div>
+    <div id="smallScreenPlayer">
+        <p>👤</p>
+        <p id="playerPoints">0</p>
+    </div>
+
+    <div id="gameContainer">
+
+       
+        <button id="rematchButton">Spela igen</button>
+
+        <div id="resultContainer">
+        </div>
+
+
+        <div id="winningContainer">
+            <img id="winGif" src="./images/cheer.gif" alt="Gif föreställandes en guldglänsande trofé">
+            <br>
+            <p id="congrats">GRATTIS!</p>
+            <button id="restartButton" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
+        </div>
+
+        <div id="losingContainer">
+            <img id="loseGif" src="./images/headshake.gif" alt="Gif föreställandes en hund med armarna i kors som skakar på huvudet">
+            <br>
+            <p id="congrats">Tyvärr! Datorn vann den här gången.</p>
+            <button id="restartButton" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
+        </div>
+
+
+        <button id="choiceRock" type="button" title="Sten"><img class="choicePic" src="./images/rock.jpg"
+                alt="Hand formad som en sten">
+            <p class="buttonText">Sten</p>
+        </button>
+        <button id="choiceScissors" type="button" title="Sax"><img class="choicePic" src="./images/scissors.jpg"
+                alt="Hand formad som en sax">
+            <p class="buttonText">Sax</p>
+        </button>
+        <button id="choicePaper" type="button" title="Påse"><img class="choicePic" src="./images/paper.jpg"
+                alt="Hand formad som en påse">
+            <p class="buttonText">Påse</p>
+        </button>
+    </div>
+
+
+    <div id="computerScoreBoard">
+        <h4 id="compBox">Datorns poäng:</h4>
+        <p id="compPoints">0</p>
+        <img id="drawComp" src="./images/handshake.gif" alt="Gif föreställandes två personer som skakar hand">
+        <img id="rockIconComp" src="./images/Rock-icon.png" alt="Bild av en hand formad som sten som ökar i storlek">
+        <img id="scissorsIconComp" src="./images/Scissors-icon.png" alt="Bild av en hand formad som en sax som ökar i storlek">
+        <img id="paperIconComp" src="./images/Paper-icon.png" alt="Bild av en hand formad som en påse som ökar i storlek">
+    </div>
+
+    <div id="smallScreenComputer">
+        <p>💻</p>
+        <p id="compPoints">0</p>
+    </div>
+
+
+
+
 
     <footer>
-        <p class="footerText">Ett spel av Tina Strömberg© 2022</p>
+        <p class="footerText">Ett spel av Tina Strömberg 2022</p>
+
     </footer>
 
 
+    <script src="main.js"></script>
 
 </body>
 

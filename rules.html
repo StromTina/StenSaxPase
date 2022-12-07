@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <script src="main.js"></script>
     <header>
         <div class="headertitle">
             <h1>STEN SAX PÅSE!</h1>
@@ -32,26 +31,32 @@
         <a href="statistics.html" class="navSymbols">🥇</a>
     </nav>
 
+    <div id="rules">
 
-    <div id="rulescontainer">
-        <p class="rules">Sten, sax, påse är ett enkelt spel att spela. Välj ett av alternativen, vänta på att datorn gör sitt drag och se vem som vann. Först till tre poäng vinner. Lycka till!</p>
-            <p class="rules">Sten krossar sax.</p>
-            <p class="rules">Sax klipper sönder påse.</p>
-            <p class="rules">Påse plockar upp sten.</p>
+        <video id="rulesvideo" controls poster="./images/videoimage.jpg" title="Regler för 'Sten, sax, påse'">
+            <source src="rockpaperscissorstutorial.mp4" type="video/mp4"
+                alt="Video på två barn som förklarar regler för sten, sax, påse">
+            Your browser does not support the video tag.
+        </video>
+
+        <div id="rulescontainer">
+            <p class="rulesText">Sten, sax, påse är ett enkelt spel att spela. Välj ett av alternativen, vänta på att
+                datorn gör sitt drag och se vem som vann. Först till tre poäng vinner. Lycka till!</p>
+            <p class="rulesText">Sten krossar sax.</p>
+            <p class="rulesText">Sax klipper sönder påse.</p>
+            <p class="rulesText">Påse plockar upp sten.</p>
+        </div>
+
+
     </div>
-
-    <video id="rulesvideo" controls poster="./images/videoimage.jpg">
-        <source src="rockpaperscissorstutorial.mp4" type="video/mp4" alt="Video på två barn som förklarar regler för sten, sax, påse">
-        Your browser does not support the video tag.
-      </video>      
 
 
 
     <footer>
-        <p class="footerText">Ett spel av Tina Strömberg© 2022</p>
+        <p class="footerText">Ett spel av Tina Strömberg 2022</p>
     </footer>
 
-
+    <script src="main.js"></script>
 
 </body>
 

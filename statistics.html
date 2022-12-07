@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <script src="main.js"></script>
     <header>
         <div class="headertitle">
             <h1>STEN SAX PÅSE!</h1>
@@ -33,15 +32,38 @@
     </nav>
 
 
-    <div id="statisticsContainer">
- 
-            hej
+    <div id="statsContainer">
+
+        <table id="statsTable">
+            <thead>
+                <tr>
+                    <th colspan="4">Statistik</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Spelarens vunna matcher: </td>
+                    <td>Datorns vunna matcher:</td>
+                </tr>
+
+                <tr>
+                    <td id="statsPlayer">0</td>
+                    <td id="statsComputer">0</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4"><button id="refreshButton"><p id="refreshText">Uppdatera statistiken</p></button></td>   
+            </tr>
+        </table>
+
+
     </div>
+
     <footer>
-        <p class="footerText">Ett spel av Tina Strömberg© 2022</p>
+        <p class="footerText">Ett spel av Tina Strömberg 2022</p>
     </footer>
 
+    <script src="main.js"></script>
 
 </body>
-
 </html>
