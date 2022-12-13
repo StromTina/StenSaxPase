@@ -8,6 +8,7 @@
     <title>Sten Sax Påse</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script src="main.js"></script>
 
 <body>
     <header>
@@ -15,6 +16,7 @@
             <h1>STEN SAX PÅSE!</h1>
         </div>
     </header>
+
     <nav>
         <a href="home.html" class="nav-items"><img class="nav-picture" src="./images/hus.png" alt="Ikon föreställande hemknapp/hus"> <p class="nav-word">Hem</p></a>
         <a href="newgame.html" class="nav-items"><img class="nav-picture" src="./images/spel.png" alt="Ikon föreställande handkontroll"> <p class="nav-word">Nytt spel</p></a>
@@ -31,31 +33,19 @@
         <a href="statistics.html" class="small-nav-icon"><img class="nav-picture" src="./images/trophy.png" alt="Ikon föreställande trofé"></a>
     </nav>
 
-    <div id="rules">
 
-        <div id="rules-container">
-            <p class="rules-text">Sten, sax, påse är ett enkelt spel att spela. Välj ett av alternativen, vänta på att
-                datorn gör sitt drag och se vem som vann. Först till tre poäng vinner. Lycka till!</p>
-            <p class="rules-text">Sten krossar sax.</p>
-            <p class="rules-text">Sax klipper sönder påse.</p>
-            <p class="rules-text">Påse plockar upp sten.</p>
-        </div>
+    <aside></aside>
 
-        <video id="rulesvideo" controls poster="./images/videoimage.jpg" title="Regler för 'Sten, sax, påse'">
-            <source src="rockpaperscissorstutorial.mp4" type="video/mp4"
-                alt="Video på två barn som förklarar regler för sten, sax, påse">
-            Your browser does not support the video tag.
-        </video>
+    <div id="homecontainer">
+        <img id="hand-gif" src="./images/rock-scissors-paper.gif" alt="Gif depicting hands doing rock paper scissors">
+        <button id="new-game-button" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
 
     </div>
-
-
 
     <footer>
         <p class="footerText">Ett spel av Tina Strömberg 2022</p>
     </footer>
 
-    <script src="main.js"></script>
 
 </body>
 

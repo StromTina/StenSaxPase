@@ -17,91 +17,121 @@
 
         </div>
     </header>
-    <nav id="navbar">
-        <a href="index.html" class="navItems">🏠 Hem</a>
-        <a href="newgame.html" class="navItems">🎮 Nytt spel</a>
-        <a href="rules.html" class="navItems">📃 Regler</a>
-        <a href="history.html" class="navItems">🤓 Onödigt vetande</a>
-        <a href="statistics.html" class="navItems"> 🥇 Statistik</a>
+    <nav>
+        <a href="home.html" class="nav-items"><img class="nav-picture" src="./images/hus.png"
+                alt="Ikon föreställande hemknapp/hus">
+            <p class="nav-word">Hem</p>
+        </a>
+        <a href="newgame.html" class="nav-items"><img class="nav-picture" src="./images/spel.png"
+                alt="Ikon föreställande handkontroll">
+            <p class="nav-word">Nytt spel</p>
+        </a>
+        <a href="rules.html" class="nav-items"><img class="nav-picture" src="./images/clipboard.png"
+                alt="Ikon föreställande clipboard med checklista">
+            <p class="nav-word">Regler</p>
+        </a>
+        <a href="history.html" class="nav-items"><img class="nav-picture" src="./images/lightbulb.png"
+                alt="Ikon föreställande lysande glödlampa">
+            <p class="nav-word">Onödigt vetande</p>
+        </a>
+        <a href="statistics.html" class="nav-items"><img class="nav-picture" src="./images/trophy.png"
+                alt="Ikon föreställande trofé">
+            <p class="nav-word">Statistik</p>
+        </a>
     </nav>
 
-    <nav class="smallNav">
-        <a href="index.html" class="navSymbols">🏠</a>
-        <a href="newgame.html" class="navSymbols">🎮</a>
-        <a href="rules.html" class="navSymbols">📃</a>
-        <a href="history.html" class="navSymbols">🤓</a>
-        <a href="statistics.html" class="navSymbols">🥇</a>
+    <nav class="small-nav">
+        <a href="home.html" class="small-nav-icon"><img class="nav-picture" src="./images/hus.png"
+                alt="Ikon föreställande hemknapp/hus"></a>
+        <a href="newgame.html" class="small-nav-icon"><img class="nav-picture" src="./images/spel.png"
+                alt="Ikon föreställande handkontroll"></a>
+        <a href="rules.html" class="small-nav-icon"><img class="nav-picture" src="./images/clipboard.png"
+                alt="Ikon föreställande clipboard med checklista"></a>
+        <a href="history.html" class="small-nav-icon"><img class="nav-picture" src="./images/lightbulb.png"
+                alt="Ikon föreställande lysande glödlampa"></a>
+        <a href="statistics.html" class="small-nav-icon"><img class="nav-picture" src="./images/trophy.png"
+                alt="Ikon föreställande trofé"></a>
     </nav>
 
-    <div id="playerScoreBoard">
-        <h4 id="playerBox">Dina poäng:</h4>
-        <p id="playerPoints">0</p>
-        <img id="draw" src="./images/handshake.gif" alt="Gif föreställandes två personer som skakar hand">
-        <img id="rockIcon" src="./images/Rock-icon.png" alt="Bild av en hand formad som sten som ökar i storlek">
-        <img id="scissorsIcon" src="./images/Scissors-icon.png" alt="Bild av en hand formad som en sax som ökar i storlek">
-        <img id="paperIcon" src="./images/Paper-icon.png" alt="Bild av en hand formad som en påse som ökar i storlek">
+    <div class="scoreboard" id="player-scoreboard">
+        <img class="player-icon" src="./images/Player-icon.png" alt="Ikon som representerar spelaren">
+        <p id="player-points">0</p>
+        <img class="hand-pic" id="draw" src="./images/handshake.gif" alt="Gif föreställandes två personer som skakar hand">
+        <img class="hand-pic" id="rock-icon" src="./images/Rock-icon.png" alt="Bild av en hand formad som sten som ökar i storlek">
+        <img class="hand-pic" id="scissors-icon" src="./images/Scissors-icon.png"
+            alt="Bild av en hand formad som en sax som ökar i storlek">
+        <img class="hand-pic" id="paper-icon" src="./images/Paper-icon.png" alt="Bild av en hand formad som en påse som ökar i storlek">
     </div>
 
-    <div id="smallScreenPlayer">
-        <p>👤</p>
-        <p id="playerPoints">0</p>
-    </div>
 
-    <div id="gameContainer">
-
-       
-        <button id="rematchButton">Spela igen</button>
-
-        <div id="resultContainer">
-        </div>
+    <div id="game-container">
+        <div id="result-container"></div>
 
 
-        <div id="winningContainer">
-            <img id="winGif" src="./images/cheer.gif" alt="Gif föreställandes en guldglänsande trofé">
+        <div id="winning-container">
+            <img class="win-gif" id="cheerGif" src="./images/cheer.gif"
+                alt="Gif föreställande en tecknad hund som hejar med pompoms i tassarna">
+            <img class="win-gif" id="applauseGif" src="./images/applause.gif" alt="Gif föreställande en tecknad hund som applåderar">
+            <img class="win-gif" id="celebrationGif" src="./images/celebration.gif"
+                alt="Gif föreställande två tecknade djur med partyhattar som hoppar i konfetti">
+            <img class="win-gif" id="trophyGif" src="./images/trophy.gif" alt="Gif föreställande en guldglänsande trofé med siffran 1">
             <br>
             <p id="congrats">GRATTIS!</p>
-            <button id="restartButton" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
+            <button id="restart-button" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
         </div>
 
-        <div id="losingContainer">
-            <img id="loseGif" src="./images/headshake.gif" alt="Gif föreställandes en hund med armarna i kors som skakar på huvudet">
+        <div id="losing-container">
+            <img class="win-gif" id="headshakeGif" src="./images/headshake.gif"
+                alt="Gif föreställande en tecknad nalle med armarna i kors som skakar på huvudet">
+            <img class="win-gif" id="rainGif" src="./images/rain.gif"
+                alt="Gif föreställande en tecknad figur i blå regnkappa som står i regnet och ser besviken ut">
+            <img class="win-gif" id="cryGif" src="./images/sad.gif" alt="Gif föreställande två tecknade ögon som fylls med tårar">
+            <img class="win-gif" id="sadDogGif" src="./images/sadDog.gif"
+                alt="Gif föreställande en tecknad hund som ligger ned och gråter">
             <br>
             <p id="congrats">Tyvärr! Datorn vann den här gången.</p>
-            <button id="restartButton" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
+            <button id="restart-button" type="button" onclick="window.location.href='newgame.html'">Nytt spel</button>
         </div>
 
 
-        <button id="choiceRock" type="button" title="Sten"><img class="choicePic" src="./images/rock.jpg"
-                alt="Hand formad som en sten">
-            <p class="buttonText">Sten</p>
+
+
+        <button class="choice-button" id="choice-rock" type="button" title="Sten"><img class="choice-pic"
+                src="./images/rock.jpg" alt="Hand formad som en sten">
+            <p class="button-text">Sten</p>
         </button>
-        <button id="choiceScissors" type="button" title="Sax"><img class="choicePic" src="./images/scissors.jpg"
-                alt="Hand formad som en sax">
-            <p class="buttonText">Sax</p>
+        <button class="choice-button" id="choice-scissors" type="button" title="Sax"><img class="choice-pic"
+                src="./images/scissors.jpg" alt="Hand formad som en sax">
+            <p class="button-text">Sax</p>
         </button>
-        <button id="choicePaper" type="button" title="Påse"><img class="choicePic" src="./images/paper.jpg"
-                alt="Hand formad som en påse">
-            <p class="buttonText">Påse</p>
+        <button class="choice-button" id="choice-paper" type="button" title="Påse"><img class="choice-pic"
+                src="./images/paper.jpg" alt="Hand formad som en påse">
+            <p class="button-text">Påse</p>
         </button>
     </div>
 
-
-    <div id="computerScoreBoard">
-        <h4 id="compBox">Datorns poäng:</h4>
-        <p id="compPoints">0</p>
-        <img id="drawComp" src="./images/handshake.gif" alt="Gif föreställandes två personer som skakar hand">
-        <img id="rockIconComp" src="./images/Rock-icon.png" alt="Bild av en hand formad som sten som ökar i storlek">
-        <img id="scissorsIconComp" src="./images/Scissors-icon.png" alt="Bild av en hand formad som en sax som ökar i storlek">
-        <img id="paperIconComp" src="./images/Paper-icon.png" alt="Bild av en hand formad som en påse som ökar i storlek">
+    <button id="continue-button">Fortsätt</button>
+ 
+    <div class="small-scoreboard">
+        <img class="small-player-icon" src="./images/Player-icon.png" alt="Ikon som representerar spelaren">
+        <p id="small-player-points">0</p> <img class="small-player-icon" src="./images/Computer-icon.png"
+            alt="Ikon som representerar datorn">
+        <p id="small-comp-points">0</p>
     </div>
 
-    <div id="smallScreenComputer">
-        <p>💻</p>
-        <p id="compPoints">0</p>
+    
+
+
+    <div class="scoreboard" id="computer-scoreboard">
+        <img class="player-icon" src="./images/Computer-icon.png" alt="Ikon som representerar datorn">
+        <p id="comp-points">0</p>
+        <img class="hand-pic" id="draw-comp" src="./images/handshake.gif" alt="Gif föreställandes två personer som skakar hand">
+        <img class="hand-pic" id="rock-icon-comp" src="./images/Rock-icon.png" alt="Bild av en hand formad som sten som ökar i storlek">
+        <img class="hand-pic" id="scissors-icon-comp" src="./images/Scissors-icon.png"
+            alt="Bild av en hand formad som en sax som ökar i storlek">
+        <img class="hand-pic" id="paper-icon-comp" src="./images/Paper-icon.png"
+            alt="Bild av en hand formad som en påse som ökar i storlek">
     </div>
-
-
-
 
 
     <footer>

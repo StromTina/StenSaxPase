@@ -5,48 +5,53 @@ const PAPER = 3;
 let playerChoice = 0;
 let computerChoice = 0;
 
-let choiceRock = document.getElementById('choiceRock');
-let choiceScissors = document.getElementById('choiceScissors');
-let choicePaper = document.getElementById('choicePaper');
+let gifChoice = 0;
 
-let draw = document.getElementById('draw');
-let drawComp = document.getElementById('drawComp');
-let rockIcon = document.getElementById('rockIcon');
-let rockIconComp = document.getElementById('rockIconComp');
-let scissorsIcon = document.getElementById('scissorsIcon');
-let scissorsIconComp = document.getElementById('scissorsIconComp');
-let paperIcon = document.getElementById('paperIcon');
-let paperIconComp = document.getElementById('paperIconComp');
+const choiceRock = document.getElementById('choice-rock');
+const choiceScissors = document.getElementById('choice-scissors');
+const choicePaper = document.getElementById('choice-paper');
 
-let resultContainer = document.getElementById('resultContainer');
-let rematchButton = document.getElementById('rematchButton');
-let gameContainer = document.getElementById('gameContainer');
-let winningContainer = document.getElementById('winningContainer');
+const draw = document.getElementById('draw');
+const drawComp = document.getElementById('draw-comp');
+const rockIcon = document.getElementById('rock-icon');
+const rockIconComp = document.getElementById('rock-icon-comp');
+const scissorsIcon = document.getElementById('scissors-icon');
+const scissorsIconComp = document.getElementById('scissors-icon-comp');
+const paperIcon = document.getElementById('paper-icon');
+const paperIconComp = document.getElementById('paper-icon-comp');
 
-let playerPoints = document.getElementById('playerPoints');
-let compPoints = document.getElementById('compPoints');
+const resultContainer = document.getElementById('result-container');
+const continueButton = document.getElementById('continue-button');
+const winningContainer = document.getElementById('winning-container');
+const losingContainer = document.getElementById('losing-container');
 
-let statsPlayer = document.getElementById('statsPlayer');
-let statsComputer = document.getElementById('statsComputer');
-let refreshButton = document.getElementById('refreshButton');
+let playerPoints = document.getElementById('player-points');
+let compPoints = document.getElementById('comp-points');
 
-let history1 = document.getElementById('history1');
-let history2 = document.getElementById('history2');
-let history3 = document.getElementById('history3');
-let history4 = document.getElementById('history4');
+let statsPlayer = document.getElementById('stats-player');
+let statsComputer = document.getElementById('stats-computer');
+const refreshButton = document.getElementById('refresh-button');
 
+const history1 = document.getElementById('history1');
+const history2 = document.getElementById('history2');
+const history3 = document.getElementById('history3');
+const history4 = document.getElementById('history4');
 
 playerPoints = 0;
 compPoints = 0;
 
-statsPlayer = 0;
-statsComputer = 0;
+let stringPlayer = localStorage.getItem('playerWins');
+let stringComp = localStorage.getItem('compWins');
+
+statsPlayer = parseInt(stringPlayer);
+statsComputer = parseInt(stringComp);
+
 
 if (window.location.href === "http://127.0.0.1:5500/StenSaxP%C3%A5se/newgame.html") {
     choiceRock.addEventListener('click', playerChoiceRock);
     choiceScissors.addEventListener('click', playerChoiceScissors);
     choicePaper.addEventListener('click', playerChoicePaper);
-    rematchButton.addEventListener('click', continuePlaying);
+    continueButton.addEventListener('click', continuePlaying);
 }
 
 if (window.location.href === 'http://127.0.0.1:5500/StenSaxP%C3%A5se/history.html') {
@@ -56,36 +61,24 @@ if (window.location.href === 'http://127.0.0.1:5500/StenSaxP%C3%A5se/history.htm
     history4.addEventListener('click', showFirst);
 }
 
+if (window.location.href === 'http://127.0.0.1:5500/StenSaxP%C3%A5se/statistics.html') {
+    refreshButton.addEventListener('click', clearStatistics);
+    document.getElementById('stats-player').innerHTML = statsPlayer;
+    document.getElementById('stats-computer').innerHTML = statsComputer;
+}
+
 function randomChoice() {
     return Math.floor(Math.random() * 3) + 1;
 }
 
-
-function continuePlaying() {
-    resultContainer.style.display = 'none';
-    rematchButton.style.display = 'none';
-
-    
-    clearPicsFromScoreBoards();
-
-    gameContainer.appendChild(choiceRock);
-    gameContainer.appendChild(choiceScissors);
-    gameContainer.appendChild(choicePaper);
-}
-
-
-function computerMakesChoice() {
-    choiceRock.remove();
-    choiceScissors.remove();
-    choicePaper.remove();
-    resultContainer.style.display = 'flex';
-    rematchButton.style.display = 'flex';
+function randomGif() {
+    return Math.floor(Math.random() * 4) + 1;
 }
 
 
 function playerChoiceRock() {
     playerChoice = ROCK;
-    setTimeout(computerMakesChoice, 200);
+    computerMakesChoice();
     computerChoice = randomChoice();
 
     if (computerChoice === ROCK) {
@@ -96,7 +89,8 @@ function playerChoiceRock() {
     } else if (computerChoice === SCISSORS) {
         playerPoints++;
         resultContainer.textContent = "Datorn valde sax. Grattis, du vann!"
-        document.getElementById('playerPoints').innerHTML = playerPoints;
+        document.getElementById('player-points').innerHTML = playerPoints;
+        document.getElementById('small-player-points').innerHTML = playerPoints;
         rockIcon.style.display = 'inline-block';
         scissorsIconComp.style.display = 'inline-block';
 
@@ -104,7 +98,8 @@ function playerChoiceRock() {
     } else if (computerChoice === PAPER) {
         compPoints++;
         resultContainer.textContent = "Attans! Datorn valde påse. Datorn vann."
-        document.getElementById('compPoints').innerHTML = compPoints;
+        document.getElementById('comp-points').innerHTML = compPoints;
+        document.getElementById('small-comp-points').innerHTML = compPoints;
         rockIcon.style.display = 'inline-block';
         paperIconComp.style.display = 'inline-block';
     }
@@ -114,7 +109,7 @@ function playerChoiceRock() {
 
 function playerChoiceScissors() {
     playerChoice = SCISSORS;
-    setTimeout(computerMakesChoice, 200);
+    computerMakesChoice();
     computerChoice = randomChoice();
 
     if (computerChoice === SCISSORS) {
@@ -125,14 +120,16 @@ function playerChoiceScissors() {
     } else if (computerChoice === PAPER) {
         playerPoints++;
         resultContainer.textContent = "Datorn valde påse. Hurra! 1 poäng till dig."
-        document.getElementById('playerPoints').innerHTML = playerPoints;
+        document.getElementById('player-points').innerHTML = playerPoints;
+        document.getElementById('small-player-points').innerHTML = playerPoints;
         scissorsIcon.style.display = 'inline-block';
         paperIconComp.style.display = 'inline-block';
 
     } else if (computerChoice === ROCK) {
         compPoints++;
         resultContainer.textContent = "Otur! Datorn valde sten. Datorn vann."
-        document.getElementById('compPoints').innerHTML = compPoints;
+        document.getElementById('comp-points').innerHTML = compPoints;
+        document.getElementById('small-comp-points').innerHTML = compPoints;
         scissorsIcon.style.display = 'inline-block';
         rockIconComp.style.display = 'inline-block';
     }
@@ -142,7 +139,7 @@ function playerChoiceScissors() {
 
 function playerChoicePaper() {
     playerChoice = PAPER;
-    setTimeout(computerMakesChoice, 200);
+    computerMakesChoice();
     computerChoice = randomChoice()
 
     if (computerChoice === PAPER) {
@@ -153,14 +150,16 @@ function playerChoicePaper() {
     } else if (computerChoice === ROCK) {
         playerPoints++;
         resultContainer.textContent = "Grattis! Datorn valde sten. Det går bra nu!"
-        document.getElementById('playerPoints').innerHTML = playerPoints;
+        document.getElementById('player-points').innerHTML = playerPoints;
+        document.getElementById('small-player-points').innerHTML = playerPoints;
         paperIcon.style.display = 'inline-block';
         rockIconComp.style.display = 'inline-block';
 
     } else if (computerChoice === SCISSORS) {
         compPoints++;
         resultContainer.textContent = "Tusan! Datorn valde sax och klippte sönder din påse."
-        document.getElementById('compPoints').innerHTML = compPoints;
+        document.getElementById('comp-points').innerHTML = compPoints;
+        document.getElementById('small-comp-points').innerHTML = compPoints;
         paperIcon.style.display = 'inline-block';
         scissorsIconComp.style.display = 'inline-block';
     }
@@ -168,37 +167,50 @@ function playerChoicePaper() {
     gameFinished();
 }
 
+
+function computerMakesChoice() {
+    choiceRock.remove();
+    choiceScissors.remove();
+    choicePaper.remove();
+    resultContainer.style.display = 'flex';
+    continueButton.style.display = 'flex';
+}
+
+function continuePlaying() {
+    resultContainer.style.display = 'none';
+    continueButton.style.display = 'none';
+
+    clearPicsFromScoreBoards();
+
+    document.getElementById('game-container').appendChild(choiceRock);
+    document.getElementById('game-container').appendChild(choiceScissors);
+    document.getElementById('game-container').appendChild(choicePaper);
+}
+
 function gameFinished() {
+
     if (compPoints === 3) {
         statsComputer++;
-        losingContainer.style.display = 'block'; //korrigera
-        resultContainer.remove();
-        rematchButton.remove();
-        choiceRock.remove();
-        choiceScissors.remove();
-        choicePaper.remove();
-
-        console.log('statsComp är ' + statsComputer)
-
+        losingContainer.style.display = 'block';
+        showResultGif();
+        clearGame();
+        localStorage.setItem('compWins', statsComputer);
 
     } else if (playerPoints === 3) {
         statsPlayer++;
-        winningContainer.style.display = 'block'; //korrigera
-        resultContainer.remove();
-        rematchButton.remove();
-        choiceRock.remove();
-        choiceScissors.remove();
-        choicePaper.remove();
-
-        console.log('statsPlayer är ' + statsPlayer)
+        winningContainer.style.display = 'block';
+        showResultGif();
+        clearGame();
+        localStorage.setItem('playerWins', statsPlayer);
     }
-
-    saveStats();
 }
 
-const saveStats = () => {
-    localStorage.setItem('playerWins', statsPlayer);
-    localStorage.setItem('compWins', statsComputer);
+function clearGame() {
+    resultContainer.remove();
+    continueButton.remove();
+    choiceRock.remove();
+    choiceScissors.remove();
+    choicePaper.remove();
 }
 
 function clearPicsFromScoreBoards() {
@@ -212,7 +224,26 @@ function clearPicsFromScoreBoards() {
     paperIconComp.style.display = 'none';
 }
 
+function showResultGif() {
+    gifChoice = randomGif();
 
+    if (gifChoice === 1) {
+        document.getElementById('cheerGif').style.display = 'inline-block';
+        document.getElementById('headshakeGif').style.display = 'inline-block';
+
+    } else if (gifChoice === 2) {
+        document.getElementById('applauseGif').style.display = 'inline-block';
+        document.getElementById('rainGif').style.display = 'inline-block';
+
+    } else if (gifChoice === 3) {
+        document.getElementById('celebrationGif').style.display = 'inline-block';
+        document.getElementById('cryGif').style.display = 'inline-block';
+
+    } else {
+        document.getElementById('trophyGif').style.display = 'inline-block';
+        document.getElementById('sadDogGif').style.display = 'inline-block';
+    }
+}
 
 //***HISTORY CODE***
 
@@ -222,7 +253,6 @@ function showSecond() {
         history2.style.display = 'inline-block';
     }
 }
-
 
 function showThird() {
     if (history2.style.display = 'inline-block') {
@@ -245,14 +275,15 @@ function showFirst() {
     }
 }
 
-let storedPlayerWins = localStorage.getItem('playerWins');
-let storedComputerWins = localStorage.getItem('compWins');
+//***STATISTICS CODE***/
 
+function clearStatistics() {
+    localStorage.removeItem('compWins');
+    localStorage.removeItem('playerWins');
 
+    localStorage.setItem('compWins', '0')
+    localStorage.setItem('playerWins', '0')
 
-if (window.location.href === 'http://127.0.0.1:5500/StenSaxP%C3%A5se/statistics.html') {
-    
-        document.getElementById('statsPlayer').innerHTML = storedPlayerWins;
-        document.getElementById('statsComputer').innerHTML = storedComputerWins;
-
+    document.getElementById('stats-player').innerHTML = localStorage.getItem('playerWins');
+    document.getElementById('stats-computer').innerHTML = localStorage.getItem('compWins');
 }
