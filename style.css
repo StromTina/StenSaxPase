@@ -297,7 +297,6 @@ nav {
     grid-area: left;
     margin-left: 5vh;
     margin-right: 5vh;
-
 }
 
 #computer-scoreboard {
@@ -354,8 +353,7 @@ nav {
     margin-top: 20vh;
     margin-bottom: 30vh;
     display: none;
-    animation-name: down;
-    animation-duration: 1.5s;
+    animation: growing 2s;
 }
 
 #continue-button {
@@ -373,9 +371,8 @@ nav {
     color: #caaf81;
     font-weight: 600;
     border: 3px outset #caaf81;
-    border-radius: 15px;
-    animation-name: zoom;
-    animation-duration: 1.5s;
+    border-radius: 50px;
+    animation: zoom 1.5s;
 }
 
 #continue-button:hover,
@@ -399,8 +396,7 @@ nav {
     padding: 5% 10% 5% 10%;
     border-radius: 25px;
     margin: 5vh 1vh 5vh 1vh;
-    animation-name: growing;
-    animation-duration: 2s;
+    animation: turn 2s;
 }
 
 #restart-button {
@@ -424,7 +420,7 @@ nav {
 }
 
 .win-gif {
-    display: none; 
+    display: none;
     width: 8vw;
     margin: 1.5em;
     animation-name: pulse;
@@ -542,10 +538,10 @@ nav {
     color: #caaf81;
 }
 
- #history1:hover,
- #history2:hover,
- #history3:hover,
- #history4:hover {
+#history1:hover,
+#history2:hover,
+#history3:hover,
+#history4:hover {
     cursor: pointer;
     background-color: #1f0901;
     box-shadow: 0px 0px 90px 2px black inset;
@@ -664,13 +660,24 @@ td {
 }
 
 
-@keyframes down {
+@keyframes minimize {
     from {
-        transform: translateY(-80px)
+        transform: scale(1.0)
     }
 
     to {
-        transform: translateY(0px);
+        transform: scale(0.1);
+    }
+
+}
+
+@keyframes turn {
+    from {
+        transform: scale(0.1) rotateZ(200deg);
+    }
+
+    to {
+        transform: scale(1.0) rotateZ(360deg);
     }
 
 }
@@ -735,7 +742,7 @@ td {
         margin-top: 200vh;
     }
 
-   .win-gif {
+    .win-gif {
         width: 10vh;
         margin-top: 4vh;
     }

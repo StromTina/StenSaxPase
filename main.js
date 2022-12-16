@@ -245,8 +245,6 @@ function showResultGif() {
     }
 }
 
-//***HISTORY CODE***
-
 function showSecond() {
     if (history1.style.display = 'inline-block') {
         history1.style.display = 'none';
@@ -274,8 +272,6 @@ function showFirst() {
         history1.style.display = 'inline-block';
     }
 }
-
-//***STATISTICS CODE***/
 
 function clearStatistics() {
     localStorage.removeItem('compWins');
