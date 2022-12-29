@@ -46,22 +46,23 @@ let stringComp = localStorage.getItem('compWins');
 statsPlayer = parseInt(stringPlayer);
 statsComputer = parseInt(stringComp);
 
+console.log(window.location.href);
 
-if (window.location.href === "http://127.0.0.1:5500/StenSaxP%C3%A5se/newgame.html") {
+if (window.location.href === 'http://127.0.0.1:5500/newgame.html') {
     choiceRock.addEventListener('click', playerChoiceRock);
     choiceScissors.addEventListener('click', playerChoiceScissors);
     choicePaper.addEventListener('click', playerChoicePaper);
     continueButton.addEventListener('click', continuePlaying);
 }
 
-if (window.location.href === 'http://127.0.0.1:5500/StenSaxP%C3%A5se/history.html') {
+if (window.location.href === 'http://127.0.0.1:5500/history.html') {
     history1.addEventListener('click', showSecond);
     history2.addEventListener('click', showThird);
     history3.addEventListener('click', showFourth);
     history4.addEventListener('click', showFirst);
 }
 
-if (window.location.href === 'http://127.0.0.1:5500/StenSaxP%C3%A5se/statistics.html') {
+if (window.location.href === 'http://127.0.0.1:5500/statistics.html') {
     refreshButton.addEventListener('click', clearStatistics);
     document.getElementById('stats-player').innerHTML = statsPlayer;
     document.getElementById('stats-computer').innerHTML = statsComputer;
